@@ -10,6 +10,7 @@ require("conform").setup({
 		c = { "clang_format" },
 		go = { "gopls", "golangci_lint_ls", "gofumpt" },
 		vue = { "volar", { "prettierd", "prettier" } },
+		markdown = { "markdownlint", { "prettierd", "prettier" } },
 	},
 	format_on_save = function(bufnr)
 		if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then

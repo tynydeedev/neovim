@@ -13,8 +13,8 @@ require("rose-pine").setup({
 	groups = {
 		background = "base",
 		background_nc = "_experimental_nc",
-		panel = "none",
-		panel_nc = "none",
+		panel = "surface",
+		panel_nc = "base",
 		border = "rose",
 		comment = "muted",
 		link = "iris",
@@ -44,14 +44,20 @@ require("rose-pine").setup({
 
 		-- Blend colours against the "base" background
 		CursorLine = { bg = "foam", blend = 10 },
-		StatusLine = { bg = "none", fg = "love" },
+		StatusLine = { bg = "none", fg = "#8cff00" },
 
 		-- By default each group adds to the existing config.
 		-- If you only want to set what is written in this config exactly,
 		-- you can set the inherit option:
 		Search = { bg = "gold", inherit = false },
+
 		NormalNC = { bg = "none" },
+		Visual = { bg = "rose" },
+
+		-- Nvim Tree
 		NvimTreeCursorLine = { bg = "muted" },
+
+		-- Git Signs
 		GitSignsAdd = { bg = "none" },
 		GitSignsChange = { bg = "none" },
 		GitSignsDelete = { bg = "none" },
