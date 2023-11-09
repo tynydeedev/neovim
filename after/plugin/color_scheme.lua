@@ -52,7 +52,7 @@ require("rose-pine").setup({
 		Search = { bg = "gold", inherit = false },
 
 		NormalNC = { bg = "none" },
-		Visual = { bg = "rose" },
+		Visual = { bg = "#075240" },
 
 		-- Nvim Tree
 		NvimTreeCursorLine = { bg = "muted" },
