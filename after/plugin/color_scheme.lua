@@ -44,7 +44,7 @@ require("rose-pine").setup({
 
 		-- Blend colours against the "base" background
 		CursorLine = { bg = "foam", blend = 10 },
-		StatusLine = { bg = "none", fg = "#8cff00" },
+		StatusLine = { bg = "none", fg = "#dc8a78" },
 
 		-- By default each group adds to the existing config.
 		-- If you only want to set what is written in this config exactly,
@@ -56,6 +56,11 @@ require("rose-pine").setup({
 
 		-- Nvim Tree
 		NvimTreeCursorLine = { bg = "muted" },
+
+		-- Nvim Cmp
+		CmpBorder = { fg = "gold" },
+		PmenuSel = { bg = "#a6e3a1", fg = "#11111b" },
+		PmenuThumb = { bg = "#f3ab47" },
 
 		-- Git Signs
 		GitSignsAdd = { bg = "none" },

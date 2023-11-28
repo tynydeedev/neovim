@@ -51,11 +51,11 @@ local plugins = {
 		opts = {
 			window = {
 				completion = {
-					border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+					border = "rounded",
 					winhighlight = "Normal:CmpPmenu,FloatBorder:CmpBorder,CursorLine:PmenuSel,Search:None",
 				},
 				documentation = {
-					border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+					border = "rounded",
 					winhighlight = "Normal:CmpPmenu,FloatBorder:CmpBorder,CursorLine:PmenuSel,Search:None",
 				},
 			},
