@@ -62,6 +62,10 @@ require("rose-pine").setup({
 		PmenuSel = { bg = "#a6e3a1", fg = "#11111b" },
 		PmenuThumb = { bg = "#f3ab47" },
 
+		-- Telescope
+		TelescopeSelection = { bg = "#003956", fg = "#ffede2" },
+		TelescopeSelectionCaret = { bg = "#043d5a" },
+
 		-- Git Signs
 		GitSignsAdd = { bg = "none" },
 		GitSignsChange = { bg = "none" },
