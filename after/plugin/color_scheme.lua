@@ -52,7 +52,7 @@ require("rose-pine").setup({
 		Search = { bg = "gold", inherit = false },
 
 		NormalNC = { bg = "none" },
-		Visual = { bg = "#075240" },
+		Visual = { bg = "#a6e3a1", fg = "#11111b" },
 
 		-- Nvim Tree
 		NvimTreeCursorLine = { bg = "muted" },
@@ -63,7 +63,7 @@ require("rose-pine").setup({
 		PmenuThumb = { bg = "#f3ab47" },
 
 		-- Telescope
-		TelescopeSelection = { bg = "#003956", fg = "#ffede2" },
+		TelescopeSelection = { bg = "#a6e3a1", fg = "#11111b" },
 		TelescopeSelectionCaret = { bg = "#043d5a" },
 
 		-- Git Signs
