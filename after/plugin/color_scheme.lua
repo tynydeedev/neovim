@@ -11,8 +11,6 @@ require("rose-pine").setup({
 
 	--- @usage string hex value or named color from rosepinetheme.com/palette
 	groups = {
-		background = "base",
-		background_nc = "_experimental_nc",
 		panel = "surface",
 		panel_nc = "base",
 		border = "rose",
@@ -63,8 +61,8 @@ require("rose-pine").setup({
 		PmenuThumb = { bg = "#f3ab47" },
 
 		-- Telescope
-		TelescopeSelection = { bg = "#a6e3a1", fg = "#11111b" },
-		TelescopeSelectionCaret = { bg = "#043d5a" },
+		TelescopeSelection = { bg = "none", fg = "text" },
+		TelescopeSelectionCaret = { bg = "none", fg = "rose" },
 
 		-- Git Signs
 		GitSignsAdd = { bg = "none" },
