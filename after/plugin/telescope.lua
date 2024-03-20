@@ -7,8 +7,8 @@ end)
 
 require("telescope").setup({
 	defaults = {
-		prompt_prefix = " ",
-		selection_caret = "󰱼 ",
+		prompt_prefix = "󰱼 ",
+		selection_caret = " ",
 		results_title = "Available Files",
 	},
 })

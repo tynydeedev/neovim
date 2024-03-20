@@ -31,37 +31,33 @@ local plugins = {
 	{ "stevearc/conform.nvim" },
 	{
 		"nvim-telescope/telescope.nvim",
-		tag = "0.1.4",
 		dependencies = {
 			{ "nvim-lua/plenary.nvim" },
-			{ "nvim-tree/nvim-web-devicons" },
 			{ "BurntSushi/ripgrep" },
 			{ "sharkdp/fd" },
 		},
 	},
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 	{ "tpope/vim-fugitive" },
-	{ "VonHeikemen/lsp-zero.nvim", branch = "v3.x" },
-	{ "williamboman/mason.nvim" },
-	{ "williamboman/mason-lspconfig.nvim" },
-	{ "neovim/nvim-lspconfig" },
-	{ "hrsh7th/cmp-nvim-lsp" },
 	{
-		"hrsh7th/nvim-cmp",
-		opts = {
-			window = {
-				completion = {
-					border = "rounded",
-					winhighlight = "Normal:CmpPmenu,FloatBorder:CmpBorder,CursorLine:PmenuSel,Search:None",
-				},
-				documentation = {
-					border = "rounded",
-					winhighlight = "Normal:CmpPmenu,FloatBorder:CmpBorder,CursorLine:PmenuSel,Search:None",
-				},
-			},
+		"williamboman/mason.nvim",
+		dependencies = {
+			{ "williamboman/mason-lspconfig.nvim" },
+			{ "neovim/nvim-lspconfig" },
 		},
 	},
-	{ "L3MON4D3/LuaSnip" },
+	{
+		"hrsh7th/nvim-cmp",
+		dependencies = {
+			{ "hrsh7th/cmp-nvim-lsp" },
+		},
+	},
+	{
+		"L3MON4D3/LuaSnip",
+		dependencies = {
+			{ "saadparwaiz1/cmp_luasnip" },
+		},
+	},
 	{
 		"windwp/nvim-autopairs",
 		event = "InsertEnter",
@@ -72,6 +68,10 @@ local plugins = {
 		opts = {},
 	},
 	{ "rose-pine/neovim", name = "rose-pine" },
+	{
+		"nvim-lualine/lualine.nvim",
+		opts = {},
+	},
 }
 
 local opts = {}

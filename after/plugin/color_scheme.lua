@@ -1,44 +1,49 @@
 require("rose-pine").setup({
 	--- @usage 'auto'|'main'|'moon'|'dawn'
-	variant = "main",
+	variant = "moon",
 	--- @usage 'main'|'moon'|'dawn'
-	dark_variant = "main",
-	bold_vert_split = false,
-	dim_nc_background = false,
-	disable_background = true,
-	disable_float_background = true,
-	disable_italics = false,
+	dark_variant = "moon",
+	dim_inactive_windows = false,
+	extend_background_behind_borders = true,
+
+	enable = {
+		terminal = true,
+		legacy_highlights = true, -- Improve compatibility for previous versions of Neovim
+		migrations = true, -- Handle deprecated options automatically
+	},
+
+	styles = {
+		bold = true,
+		italic = true,
+		transparency = true,
+	},
 
 	--- @usage string hex value or named color from rosepinetheme.com/palette
 	groups = {
 		panel = "surface",
 		panel_nc = "base",
 		border = "rose",
-		comment = "muted",
 		link = "iris",
-		punctuation = "subtle",
 
 		error = "love",
 		hint = "iris",
 		info = "foam",
+		note = "pine",
+		todo = "rose",
 		warn = "gold",
 
-		headings = {
-			h1 = "iris",
-			h2 = "foam",
-			h3 = "rose",
-			h4 = "gold",
-			h5 = "pine",
-			h6 = "foam",
-		},
-		-- or set all headings at once
-		-- headings = 'subtle'
+		h1 = "iris",
+		h2 = "foam",
+		h3 = "rose",
+		h4 = "gold",
+		h5 = "pine",
+		h6 = "foam",
 	},
 
 	-- Change specific vim highlight groups
 	-- https://github.com/rose-pine/neovim/wiki/Recipes
 	highlight_groups = {
-		ColorColumn = { bg = "rose" },
+		ColorColumn = { bg = "rose", blend = 60 },
 
 		-- Blend colours against the "base" background
 		CursorLine = { bg = "foam", blend = 10 },
@@ -47,13 +52,8 @@ require("rose-pine").setup({
 		-- By default each group adds to the existing config.
 		-- If you only want to set what is written in this config exactly,
 		-- you can set the inherit option:
-		Search = { bg = "gold", inherit = false },
-
+		MatchParen = { fg = "text" },
 		NormalNC = { bg = "none" },
-		Visual = { bg = "#a6e3a1", fg = "#11111b" },
-
-		-- Nvim Tree
-		NvimTreeCursorLine = { bg = "muted" },
 
 		-- Nvim Cmp
 		CmpBorder = { fg = "gold" },
