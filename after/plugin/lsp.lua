@@ -34,7 +34,6 @@ require("mason-lspconfig").setup({
 	-- with the ones you want to install
 	ensure_installed = {
 		"tsserver",
-		"clangd",
 		"eslint",
 		"lua_ls",
 		"sqlls",
@@ -44,14 +43,8 @@ require("mason-lspconfig").setup({
 		"cssls",
 		"docker_compose_language_service",
 		"dockerls",
-		"prismals",
 	},
 	handlers = {
-		function(server_name)
-			require("lspconfig")[server_name].setup({
-				capabilities = capabilities,
-			})
-		end,
 		["lua_ls"] = function()
 			require("lspconfig").lua_ls.setup({
 				settings = {
@@ -78,6 +71,11 @@ require("mason-lspconfig").setup({
 					},
 				},
 				filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
+			})
+		end,
+		function(server_name)
+			require("lspconfig")[server_name].setup({
+				capabilities = capabilities,
 			})
 		end,
 	},

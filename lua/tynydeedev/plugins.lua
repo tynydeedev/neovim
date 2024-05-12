@@ -70,7 +70,15 @@ local plugins = {
 	{ "rose-pine/neovim", name = "rose-pine" },
 	{
 		"nvim-lualine/lualine.nvim",
-		opts = {},
+		event = "ColorScheme",
+		config = function()
+			require("lualine").setup({
+				options = {
+					--- @usage 'rose-pine' | 'rose-pine-alt'
+					theme = "rose-pine-alt",
+				},
+			})
+		end,
 	},
 }
 
