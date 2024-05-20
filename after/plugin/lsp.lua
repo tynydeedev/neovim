@@ -33,14 +33,15 @@ require("mason-lspconfig").setup({
 	-- Replace the language servers listed here
 	-- with the ones you want to install
 	ensure_installed = {
-		"tsserver",
 		"eslint",
-		"lua_ls",
-		"sqlls",
-		"tailwindcss",
+		"tsserver",
 		"volar",
-		"bashls",
+		"tailwindcss",
 		"cssls",
+		"gopls",
+		"sqlls",
+		"bashls",
+		"lua_ls",
 		"docker_compose_language_service",
 		"dockerls",
 	},
