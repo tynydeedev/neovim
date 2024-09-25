@@ -34,7 +34,7 @@ require("mason-lspconfig").setup({
 	-- with the ones you want to install
 	ensure_installed = {
 		"eslint",
-		"tsserver",
+		"ts_ls",
 		"volar",
 		"tailwindcss",
 		"cssls",

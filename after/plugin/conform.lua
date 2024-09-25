@@ -16,8 +16,10 @@ require("conform").setup({
 		if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
 			return
 		end
-		return { timeout_ms = 500, lsq_fallback = true }
+		return { timeout_ms = 500, lsp_format = "fallback" }
 	end,
+	notify_on_error = true,
+	notify_no_formatters = true,
 })
 
 vim.api.nvim_create_user_command("FormatDisable", function(args)

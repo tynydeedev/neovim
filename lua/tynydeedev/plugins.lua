@@ -28,7 +28,10 @@ local plugins = {
 			"nvim-tree/nvim-web-devicons",
 		},
 	},
-	{ "stevearc/conform.nvim" },
+	{
+		"stevearc/conform.nvim",
+		opts = {},
+	},
 	{
 		"nvim-telescope/telescope.nvim",
 		dependencies = {
