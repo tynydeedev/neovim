@@ -2,15 +2,45 @@ require("conform").setup({
 	formatters_by_ft = {
 		lua = { "stylua" },
 		python = { "isort", "black" },
-		javascript = { { "prettierd", "prettier" } },
-		typescript = { { "prettierd", "prettier" } },
-		json = { { "prettierd", "prettier" } },
-		html = { { "prettierd", "prettier" } },
-		css = { { "prettierd", "prettier" } },
+		javascript = {
+			"prettierd",
+			"prettier",
+			stop_after_first = true,
+		},
+		typescript = {
+			"prettierd",
+			"prettier",
+			stop_after_first = true,
+		},
+		json = {
+			"prettierd",
+			"prettier",
+			stop_after_first = true,
+		},
+		html = {
+			"prettierd",
+			"prettier",
+			stop_after_first = true,
+		},
+		css = {
+			"prettierd",
+			"prettier",
+			stop_after_first = true,
+		},
 		c = { "clang_format" },
-		go = { "gopls", "golangci_lint_ls", "gofumpt" },
-		vue = { "volar", { "prettierd", "prettier" } },
-		markdown = { "markdownlint", { "prettierd", "prettier" } },
+		go = {
+			"gopls",
+			"golangci_lint_ls",
+			"gofumpt",
+		},
+		vue = {
+			"volar",
+			{ "prettierd", "prettier", stop_after_first = true },
+		},
+		markdown = {
+			"markdownlint",
+			{ "prettierd", "prettier", stop_after_first = true },
+		},
 	},
 	format_on_save = function(bufnr)
 		if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
