@@ -35,11 +35,11 @@ require("conform").setup({
 		},
 		vue = {
 			"volar",
-			{ "prettierd", "prettier", stop_after_first = true },
+			"prettierd",
 		},
 		markdown = {
 			"markdownlint",
-			{ "prettierd", "prettier", stop_after_first = true },
+			"prettierd",
 		},
 	},
 	format_on_save = function(bufnr)
@@ -78,5 +78,5 @@ vim.api.nvim_create_user_command("Format", function(args)
 			["end"] = { args.line2, end_line:len() },
 		}
 	end
-	require("conform").format({ async = true, lsp_fallback = true, range = range })
+	require("conform").format({ async = true, lsp_format = "fallback", range = range })
 end, { range = true })
