@@ -32,3 +32,6 @@ vim.opt.foldenable = false
 
 -- Status Line Options
 vim.opt.laststatus = 3
+
+-- Copy to system clipboard
+vim.opt.clipboard:append("unnamedplus")
