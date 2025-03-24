@@ -3,38 +3,38 @@ require("conform").setup({
     lua = { "stylua" },
     python = { "isort", "black" },
     javascript = {
-      "prettierd",
       "prettier",
+      "prettierd",
       stop_after_first = true,
     },
     typescript = {
-      "prettierd",
       "prettier",
+      "prettierd",
       stop_after_first = true,
     },
     javascriptreact = {
-      "prettierd",
       "prettier",
+      "prettierd",
       stop_after_first = true,
     },
     typescriptreact = {
-      "prettierd",
       "prettier",
+      "prettierd",
       stop_after_first = true,
     },
     json = {
-      "prettierd",
       "prettier",
+      "prettierd",
       stop_after_first = true,
     },
     html = {
-      "prettierd",
       "prettier",
+      "prettierd",
       stop_after_first = true,
     },
     css = {
-      "prettierd",
       "prettier",
+      "prettierd",
       stop_after_first = true,
     },
     c = { "clang_format" },
@@ -45,11 +45,11 @@ require("conform").setup({
     },
     vue = {
       "volar",
-      "prettierd",
+      "prettier",
     },
     markdown = {
       "markdownlint",
-      "prettierd",
+      "prettier",
     },
   },
   format_on_save = function(bufnr)
