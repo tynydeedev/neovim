@@ -38,3 +38,6 @@ vim.opt.laststatus = 3
 
 -- Copy to system clipboard
 vim.opt.clipboard:append("unnamedplus")
+
+-- Virtual Lines
+vim.diagnostic.config({ virtual_text = true })
