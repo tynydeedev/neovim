@@ -25,6 +25,8 @@ vim.opt.colorcolumn = "120"
 
 vim.g.mapleader = " "
 
+vim.opt.winborder = "rounded"
+
 -- Fold Options
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
