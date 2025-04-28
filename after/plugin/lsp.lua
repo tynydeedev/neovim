@@ -1,57 +1,27 @@
-local cmp = require("cmp")
-cmp.setup({
-  snippet = {
-    expand = function(args)
-      require("luasnip").lsp_expand(args.body)
-    end,
-  },
-  window = {
-    completion = {
-      border = "rounded",
-      winhighlight = "Normal:CmpPmenu,FloatBorder:CmpBorder,CursorLine:PmenuSel,Search:None",
-    },
-    documentation = {
-      border = "rounded",
-      winhighlight = "Normal:CmpPmenu,FloatBorder:CmpBorder,CursorLine:PmenuSel,Search:None",
-    },
-  },
-  mapping = cmp.mapping.preset.insert({
-    ["<CR>"] = cmp.mapping.confirm({ select = true }),
-  }),
-  sources = cmp.config.sources({
-    { name = "nvim_lsp" },
-    { name = "luasnip" },
-  }, {
-    { name = "buffer" },
-  }),
-})
-
+local lspconfig = require('lspconfig')
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
 capabilities.textDocument.foldingRange = {
   dynamicRegistration = false,
   lineFoldingOnly = true
 }
 
-require("mason").setup({})
+require("mason").setup({
+  ui = { border = "bold" },
+})
 require("mason-lspconfig").setup({
   -- Replace the language servers listed here
   -- with the ones you want to install
   ensure_installed = {
-    "eslint",
-    "ts_ls",
-    "volar",
-    "tailwindcss",
-    "cssls",
-    "gopls",
-    "sqlls",
-    "bashls",
     "lua_ls",
-    "docker_compose_language_service",
-    "dockerls",
+    "sqlls", "bashls",
+    "eslint", "ts_ls", "volar", "tailwindcss", "cssls",
+    "gopls",
+    "docker_compose_language_service", "dockerls",
   },
   handlers = {
     ["lua_ls"] = function()
-      require("lspconfig").lua_ls.setup({
+      lspconfig.lua_ls.setup({
         settings = {
           Lua = {
             diagnostics = {
@@ -65,7 +35,9 @@ require("mason-lspconfig").setup({
       local mason_registry = require("mason-registry")
       local vue_language_server_path = mason_registry.get_package("vue-language-server"):get_install_path()
           .. "/node_modules/@vue/language-server"
-      require("lspconfig").ts_ls.setup({
+
+      vim.lsp.config('ts_ls', {
+        capabilities = capabilities,
         init_options = {
           plugins = {
             {
@@ -77,11 +49,24 @@ require("mason-lspconfig").setup({
         },
         filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
       })
+      vim.lsp.enable('ts_ls')
+    end,
+    ["eslint"] = function()
+      vim.lsp.config('eslint', {
+        capabilities = capabilities,
+        settings = {
+          workingDirectory = {
+            mode = "auto"
+          }
+        }
+      })
+      vim.lsp.enable('eslint')
     end,
     function(server_name)
-      require("lspconfig")[server_name].setup({
+      vim.lsp.config(server_name, {
         capabilities = capabilities,
       })
+      vim.lsp.enable(server_name)
     end,
   },
 })

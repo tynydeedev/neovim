@@ -39,5 +39,13 @@ vim.opt.laststatus = 3
 -- Copy to system clipboard
 vim.opt.clipboard:append("unnamedplus")
 
--- Virtual Lines
-vim.diagnostic.config({ virtual_text = true })
+-- Virtual lines
+vim.diagnostic.config({
+  virtual_text = true,
+  jump = {
+    float = true
+  },
+})
+
+-- Floating Windows Border
+vim.opt.winborder = "rounded"
