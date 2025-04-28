@@ -42,9 +42,7 @@ vim.opt.clipboard:append("unnamedplus")
 -- Virtual lines
 vim.diagnostic.config({
   virtual_text = true,
-  jump = {
-    float = true
-  },
+  jump = { float = true },
 })
 
 -- Floating Windows Border
