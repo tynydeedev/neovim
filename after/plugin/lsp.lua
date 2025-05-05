@@ -1,4 +1,4 @@
-local lspconfig = require('lspconfig')
+local lspconfig = require("lspconfig")
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 capabilities.textDocument.foldingRange = {
@@ -36,7 +36,7 @@ require("mason-lspconfig").setup({
       local vue_language_server_path = mason_registry.get_package("vue-language-server"):get_install_path()
           .. "/node_modules/@vue/language-server"
 
-      vim.lsp.config('ts_ls', {
+      vim.lsp.config("ts_ls", {
         capabilities = capabilities,
         init_options = {
           plugins = {
@@ -49,10 +49,10 @@ require("mason-lspconfig").setup({
         },
         filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
       })
-      vim.lsp.enable('ts_ls')
+      vim.lsp.enable("ts_ls")
     end,
     ["eslint"] = function()
-      vim.lsp.config('eslint', {
+      vim.lsp.config("eslint", {
         capabilities = capabilities,
         settings = {
           workingDirectory = {
@@ -60,7 +60,7 @@ require("mason-lspconfig").setup({
           }
         }
       })
-      vim.lsp.enable('eslint')
+      vim.lsp.enable("eslint")
     end,
     function(server_name)
       vim.lsp.config(server_name, {
