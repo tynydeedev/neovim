@@ -15,11 +15,30 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
+  -- Shortcuts
   {
-    "numToStr/Comment.nvim",
-    opts = {},
-    lazy = false,
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      { 'echasnovski/mini.icons', version = '*' },
+      "nvim-tree/nvim-web-devicons",
+    },
   },
+
+  -- Formatting
+  { "stevearc/conform.nvim" },
+  {
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+  },
+
+  -- Highlighting
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate"
+  },
+
+  -- Navigation
   {
     "nvim-tree/nvim-tree.lua",
     version = "*",
@@ -29,10 +48,6 @@ local plugins = {
     },
   },
   {
-    "stevearc/conform.nvim",
-    opts = {},
-  },
-  {
     "nvim-telescope/telescope.nvim",
     dependencies = {
       { "nvim-lua/plenary.nvim" },
@@ -40,8 +55,12 @@ local plugins = {
       { "sharkdp/fd" },
     },
   },
-  { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+
+  -- Git
   { "tpope/vim-fugitive" },
+  { "lewis6991/gitsigns.nvim" },
+
+  -- LSP
   {
     "williamboman/mason.nvim",
     dependencies = {
@@ -49,6 +68,15 @@ local plugins = {
       { "neovim/nvim-lspconfig" },
     },
   },
+  {
+    "kevinhwang91/nvim-ufo",
+    dependencies = {
+      { "kevinhwang91/promise-async" }
+    }
+  },
+  { "numToStr/Comment.nvim", lazy = false },
+
+  -- Auto Completion
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
@@ -61,34 +89,19 @@ local plugins = {
       { "saadparwaiz1/cmp_luasnip" },
     },
   },
-  {
-    "windwp/nvim-autopairs",
-    event = "InsertEnter",
-    opts = {},
-  },
-  {
-    "lewis6991/gitsigns.nvim",
-    opts = {},
-  },
-  { "rose-pine/neovim", name = "rose-pine" },
+
+  -- ColorScheme
+  { "rose-pine/neovim",      name = "rose-pine" },
   {
     "nvim-lualine/lualine.nvim",
     event = "ColorScheme",
-    config = function()
-      require("lualine").setup({
-        options = {
-          --- @usage 'rose-pine' | 'rose-pine-alt'
-          theme = "rose-pine-alt",
-        },
-      })
-    end,
-  },
-  {
-    "kevinhwang91/nvim-ufo",
-    dependencies = {
-      { "kevinhwang91/promise-async" }
+    opts = {
+      options = { theme = "rose-pine-alt" },
     }
-  }
+  },
+
+  -- Copilot
+  { "github/copilot.vim" },
 }
 
 local opts = {}

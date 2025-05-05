@@ -1,21 +1,11 @@
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 -- Nvim-Tree
 vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<cr>")
 
--- Fugitive
-vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
-
 -- Move line up/down
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
-
--- Fold mappings
-vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
-vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
-vim.keymap.set('n', 'zr', require('ufo').openFoldsExceptKinds)
-vim.keymap.set('n', 'zm', require('ufo').closeFoldsWith)
 
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer
