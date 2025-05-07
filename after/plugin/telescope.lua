@@ -1,15 +1,7 @@
 local builtin = require("telescope.builtin")
 
-vim.keymap.set("n", "<leader>pf",
-  builtin.find_files,
-  { desc = "Find Files" }
-)
-
-vim.keymap.set("n", "<leader>pg",
-  builtin.git_files,
-  { desc = "Find Git Files" }
-)
-
+vim.keymap.set("n", "<leader>pf", builtin.find_files, { desc = "Find Files" })
+vim.keymap.set("n", "<leader>pg", builtin.git_files, { desc = "Find Git Files" })
 vim.keymap.set("n", "<leader>ps",
   function()
     builtin.grep_string({ search = vim.fn.input("Grep > ") })
@@ -22,6 +14,7 @@ require("telescope").setup({
     prompt_prefix = "󰱼 ",
     selection_caret = " ",
     results_title = "Available Files",
+    layout_strategy = "flex",
   },
   extentions = {
     ["ui-select"] = {

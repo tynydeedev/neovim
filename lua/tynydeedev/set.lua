@@ -26,6 +26,7 @@ vim.opt.colorcolumn = "120"
 vim.g.mapleader = " "
 
 vim.opt.winborder = "rounded"
+vim.opt.splitright = true
 
 -- Fold Options
 vim.opt.foldcolumn = '0' -- '0' is not bad

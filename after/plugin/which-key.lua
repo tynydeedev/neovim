@@ -9,6 +9,7 @@ wk.add({
     desc = "Buffer Local Keymaps (which-key)",
   },
   { "<leader>G", group = "[G]it" },
+  { "<leader>a", group = "AI" },
 })
 
 wk.setup({

@@ -130,11 +130,9 @@ local plugins = {
     opts = {
       window = {
         -- Use the same window as Copilot
-        layout = 'float',
-        width = 0.7,
-        height = 0.9,
-        relative = "editor",
-        border = "rounded",
+        layout = 'vertical',
+        width = 0.3,
+        height = 0.5,
       },
       question_header = "## User ",
       answer_header = "## Copilot ",
