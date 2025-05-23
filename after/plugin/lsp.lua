@@ -15,7 +15,7 @@ require("mason-lspconfig").setup({
   ensure_installed = {
     "lua_ls",
     "sqlls", "bashls",
-    "eslint", "ts_ls", "volar", "tailwindcss", "cssls",
+    "eslint", "ts_ls", "vue_ls", "tailwindcss", "cssls",
     "gopls",
     "docker_compose_language_service", "dockerls",
   },

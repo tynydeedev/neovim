@@ -155,7 +155,7 @@ local plugins = {
         Wording = "Please improve the grammar and wording of the following text.",
         Concise = "Please rewrite the following text to make it more concise.",
       },
-      model = "gpt-4o",
+      model = "claude-3.7-sonnet",
       mappings = {
         -- Use tab for completion
         complete = {
