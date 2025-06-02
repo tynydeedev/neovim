@@ -68,9 +68,9 @@ local plugins = {
 
   -- LSP
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     dependencies = {
-      { "williamboman/mason-lspconfig.nvim" },
+      { "mason-org/mason-lspconfig.nvim" },
       { "neovim/nvim-lspconfig" },
     },
   },
