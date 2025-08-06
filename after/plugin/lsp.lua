@@ -47,16 +47,6 @@ vim.lsp.config("eslint", {
   }
 })
 
--- Configure Vue Language Server
-vim.lsp.config("vue_ls", {
-  capabilities = capabilities,
-  init_options = {
-    typescript = {
-      tsdk = ""
-    }
-  }
-})
-
 vim.lsp.config("vtsls", {
   capabilities = capabilities,
   settings = {
