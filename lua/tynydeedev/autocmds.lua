@@ -8,3 +8,13 @@ vim.api.nvim_create_user_command("LspLogClear", function()
     vim.notify("Failed to clear LSP log: " .. err, vim.log.levels.ERROR)
   end
 end, { desc = "Clear the LSP log file" })
+
+-- Disable textwidth formatting for Vue files
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "vue",
+  callback = function()
+    vim.opt_local.textwidth = 0
+    vim.opt_local.formatoptions:remove("t")
+  end,
+  desc = "Disable textwidth formatting for Vue files",
+})
