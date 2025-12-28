@@ -1,6 +1,6 @@
 -- Copilot configuration
 vim.g.copilot_no_tab_map = true
-vim.g.copilot_settings = { selectedCompletionModel = 'gpt-4o-copilot' }
+vim.g.copilot_settings = { selectedCompletionModel = 'gpt-41-copilot' }
 
 -- Copilot key mappings
 vim.keymap.set("n", "<leader>cc", "<cmd>Copilot<CR>", { desc = "Copilot" })
