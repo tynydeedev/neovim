@@ -104,10 +104,9 @@ local plugins = {
   { "rose-pine/neovim",  name = "rose-pine" },
   {
     "nvim-lualine/lualine.nvim",
-    event = "ColorScheme",
-    opts = {
-      options = { theme = "rose-pine-alt" },
-    }
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    },
   },
 
   -- Copilot

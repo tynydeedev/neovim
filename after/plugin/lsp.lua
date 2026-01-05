@@ -15,7 +15,7 @@ require("mason-lspconfig").setup({
   ensure_installed = {
     "lua_ls",
     "sqlls", "bashls",
-    "eslint", "ts_ls", "tailwindcss", "cssls",
+    "eslint", "ts_ls", "tailwindcss", "cssls", 'vue_ls',
     "gopls",
     "docker_compose_language_service", "dockerls",
   },
@@ -47,25 +47,26 @@ vim.lsp.config("eslint", {
   }
 })
 
-vim.lsp.config("vtsls", {
+local vue_language_server_path = vim.fn.expand '$MASON/packages' ..
+    '/vue-language-server' .. '/node_modules/@vue/language-server'
+
+local vue_plugin = {
+  name = '@vue/typescript-plugin',
+  location = vue_language_server_path,
+  languages = { 'vue' },
+  configNamespace = 'typescript',
+}
+
+vim.lsp.config('ts_ls', {
   capabilities = capabilities,
-  settings = {
-    vtsls = {
-      tsserver = {
-        globalPlugins = {
-          {
-            name = '@vue/typescript-plugin',
-            location =
-            "/Users/tynydeedev/.local/share/fnm/node-versions/v20.18.1/installation/lib/node_modules/@vue/typescript-plugin",
-            languages = { 'vue' },
-            configNamespace = 'typescript',
-          },
-        },
-      },
+  init_options = {
+    plugins = {
+      vue_plugin,
     },
   },
-  filetypes = { 'vue' },
+  filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
 })
+vim.lsp.enable({ 'vtsls', 'vue_ls' })
 
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer
