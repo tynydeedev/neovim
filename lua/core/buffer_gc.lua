@@ -21,10 +21,10 @@ local function buffer_is_visible(bufnr)
 end
 
 local function shutdown_unused_lsp_clients()
-  for _, client in ipairs(vim.lsp.get_active_clients()) do
+  for _, client in ipairs(vim.lsp.get_clients()) do
     local is_used = false
-    for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
-      if vim.lsp.buf_is_attached(bufnr, client.id) then
+    for bufnr in pairs(client.attached_buffers) do
+      if vim.api.nvim_buf_is_valid(bufnr) then
         is_used = true
         break
       end
@@ -39,7 +39,7 @@ end
 local function schedule_cleanup(bufnr)
   if timers[bufnr] then return end
 
-  local timer = vim.loop.new_timer()
+  local timer = vim.uv.new_timer()
   timer:start(timeout_ms, 0, vim.schedule_wrap(function()
     if is_valid(bufnr) and not buffer_is_visible(bufnr) then
       vim.cmd("bdelete " .. bufnr)

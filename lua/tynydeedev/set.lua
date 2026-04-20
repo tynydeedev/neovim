@@ -41,9 +41,21 @@ vim.opt.laststatus = 3
 vim.opt.clipboard:append("unnamedplus")
 
 -- Virtual lines
+local function open_diagnostic_on_jump(diagnostic, bufnr)
+  if not diagnostic then
+    return
+  end
+
+  vim.diagnostic.open_float(bufnr, {
+    scope = "line",
+    pos = { diagnostic.lnum + 1, diagnostic.col },
+    focus = false,
+  })
+end
+
 vim.diagnostic.config({
   virtual_text = true,
-  jump = { float = true },
+  jump = { on_jump = open_diagnostic_on_jump },
 })
 
 -- Floating Windows Border
